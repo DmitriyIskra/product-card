@@ -1,5 +1,8 @@
-import ControlMenu from "./controlMenu.js"
+import ControlMenu from "./controlHeader/controlHeader";
+import ControlPage from "./controlPage";
 
-const controlMenu = new ControlMenu('.header__nav-list');
+const controlMenu = new ControlMenu('.header');
 
-controlMenu.init()
+const controlPage = new ControlPage(document.body, controlMenu);
+
+controlPage.init()
