@@ -395,7 +395,7 @@ a {
 }
 
 .footer__wr-logo {
-    width: 212px;
+    width: 241px;
 }
 
 .footer__logo-mf {
@@ -422,14 +422,14 @@ a {
 
 .footer__info-list {
     display: flex;
-    width: 212px;
+    width: 241px;
 
     flex-direction: column;
     gap: 30px;
 }
 
 .footer__info-link {
-    font-family: 'WMFRotis';
+    font-family: 'WMFRotis-Regular';
     font-size: 22px;
 
     color: #D9D9D9;
