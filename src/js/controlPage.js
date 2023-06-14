@@ -5,8 +5,8 @@ export default class ControlPage {
         this.controlMain = controlMain;
 
         this.lastActiveElement = null;
-        this.lastActiveShort = null;
         this.subMenu = null;
+        this.clickedElementNav = null;
 
         this.onMouseOver = this.onMouseOver.bind(this);
         this.onMouseOut = this.onMouseOut.bind(this);
@@ -14,20 +14,20 @@ export default class ControlPage {
     }
 
     init() {
-        this.document.addEventListener('mouseover', this.onMouseOver);
+        this.controlHeader.element.addEventListener('mouseover', this.onMouseOver);
+        this.controlHeader.element.addEventListener('click', this.onMouseClick);
     }
 
     onMouseOver(e) {
         // При наведении накладываем маску на элемент меню
-        if(e.target.closest('.header__nav-link')) { 
+        if(e.target.closest('.header__nav-link') && !e.target.parentElement.matches('.active')) { 
             let element = e.target.closest('.header__nav-item');
             let mask = element.querySelector('.link-mask');
 
             this.controlHeader.addMask(element, mask);
 
-            this.document.addEventListener('mouseout', this.onMouseOut);
-            this.document.addEventListener('click', this.onMouseClick);
-            this.document.removeEventListener('mouseover', this.onMouseOver);
+            this.controlHeader.element.addEventListener('mouseout', this.onMouseOut);
+            this.controlHeader.element.removeEventListener('mouseover', this.onMouseOver);
         }
     }
 
@@ -35,9 +35,8 @@ export default class ControlPage {
         if(e.target.closest('.header__nav-link')) { 
             this.controlHeader.removeMask();
 
-            this.document.removeEventListener('mouseout', this.onMouseOut);
-            this.document.removeEventListener('click', this.onMouseClick);
-            this.document.addEventListener('mouseover', this.onMouseOver);
+            this.controlHeader.element.removeEventListener('mouseout', this.onMouseOut);
+            this.controlHeader.element.addEventListener('mouseover', this.onMouseOver);
         }
     }
 
@@ -50,7 +49,17 @@ export default class ControlPage {
             // Снимаем маску с main
             this.controlMain.unactiveMask();
 
+            // Убираем метку с последнего кликнутого элемента
+            this.clickedElementNav.classList.remove('active');
+
         } else if(e.target.closest('.header__nav-link') && !this.subMenu) {
+            // Открываем подменю
+
+            // Сохранияем кликнутый элемент и отмечаем его
+            this.clickedElementNav = e.target.parentElement;
+            this.clickedElementNav.classList.add('active');
+
+            // Снимаем маску с элемента
             this.controlHeader.removeMask();
             
             // Поучаем data атрибут активного элемента
@@ -70,6 +79,9 @@ export default class ControlPage {
 
                     // Снимаем маску с main
                     this.controlMain.unactiveMask();
+
+                    // Убираем метку с последнего кликнутого элемента
+                    this.clickedElementNav.classList.remove('active');
                 }
             })
         }

@@ -6,11 +6,14 @@ export default class ControlMenu {
             this.element = document.querySelector(element);
         }
 
+        this.longLine = this.element.querySelector('.header__long-underline');
+
         this.lifestyle = new LifeStyleMenu();
 
         this.subMenu = null;
         this.lastActiveElement = null;
         this.lastActiveMask = null;
+        this.lastShortLine = null;
     }
 
     createPattern(html) {
@@ -37,22 +40,26 @@ export default class ControlMenu {
 
     addMask(elem, mask) {
         // При наведении накладываем маску на элемент меню
-            this.lastActiveElement = elem;
-            this.lastActiveMask = mask;
+        this.lastActiveElement = elem;
+        this.lastActiveMask = mask;
 
-            this.lastActiveMask.classList.add('hover-nav-mask');
+        this.lastActiveMask.classList.add('hover-nav-mask');
     }
 
     removeMask() { 
-            this.lastActiveMask.classList.remove('hover-nav-mask');
+        this.lastActiveMask.classList.remove('hover-nav-mask');
     }
 
     openMenu(el) {
         this.lastActiveMask.classList.remove('hover-nav-mask');
+        this.lastShortLine = this.lastActiveElement.querySelector('.header__short-line');
 
         el.classList.remove('unactive-sub');
 
         this.element.before(el);
+
+        this.longLine.style.opacity = '0';
+        this.lastShortLine.classList.add('short-line-active');
     }
 
     // Получаем под меню
@@ -65,5 +72,8 @@ export default class ControlMenu {
 
     closeSubMenu(element) {
         element.remove();
+
+        this.longLine.style.opacity = '';
+        this.lastShortLine.classList.remove('short-line-active');
     }
 }
