@@ -16,21 +16,21 @@ export default class ControlMenu {
     createPattern(html) {
         const wraperSubMenu = document.createElement('div');
         const placeSubMenu = document.createElement('div');
-        const maskSubMenu = document.createElement('div');
+        // const maskSubMenu = document.createElement('div');
 
         wraperSubMenu.classList.add('wraperSubMenu');
         wraperSubMenu.classList.add('unactive-sub');
         placeSubMenu.classList.add('placeSubMenu');
-        maskSubMenu.classList.add('maskSubMenu');
+        // maskSubMenu.classList.add('maskSubMenu');
 
         placeSubMenu.append(html);
 
         wraperSubMenu.append(placeSubMenu);
-        wraperSubMenu.append(maskSubMenu);
+        // wraperSubMenu.append(maskSubMenu);
 
         let height = this.element.offsetHeight;
-        console.log(this.element, height)
-        wraperSubMenu.style.top = `${height}px`
+
+        wraperSubMenu.style.top = `${height}px`;
 
         return wraperSubMenu;
     }
@@ -40,22 +40,19 @@ export default class ControlMenu {
             this.lastActiveElement = elem;
             this.lastActiveMask = mask;
 
-            this.lastActiveElement.classList.add('hover-nav-item');
-            this.lastActiveMask.classList.add('hover-nav-short');
+            this.lastActiveMask.classList.add('hover-nav-mask');
     }
 
     removeMask() { 
-            this.lastActiveElement.classList.remove('hover-nav-item');
-            this.lastActiveMask.classList.remove('hover-nav-short');
+            this.lastActiveMask.classList.remove('hover-nav-mask');
     }
 
-    openMenu(element) {
-        this.lastActiveElement.classList.remove('hover-nav-item');
-        this.lastActiveMask.classList.remove('hover-nav-short');
+    openMenu(el) {
+        this.lastActiveMask.classList.remove('hover-nav-mask');
 
-        element.classList.toggle('unactive-sub')
+        el.classList.remove('unactive-sub');
 
-        this.element.append(element)
+        this.element.before(el);
     }
 
     // Получаем под меню
@@ -67,6 +64,6 @@ export default class ControlMenu {
     }
 
     closeSubMenu(element) {
-
+        element.remove();
     }
 }

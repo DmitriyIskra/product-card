@@ -86,7 +86,7 @@ a {
     justify-content: space-between;
 }
 
-.hover-nav-item {
+.header__nav-item {
     position: relative;
 }
 
@@ -95,7 +95,42 @@ a {
     font-size: 22px;
 }
 
-.hover-nav-short {
+.header__short-line {
+    position: absolute;
+    left: 0;
+    top: 34px;
+
+    display: none;
+    width: 100%;
+    height: 3px;
+}
+
+.short-line-lifestyle,
+ .short-line-serve {
+    background: no-repeat url(../svg/short-line-life-serve.svg);
+    background-position: center;
+    background-size: 100% 3px;
+}
+
+.short-line-tableware,
+ .short-line-swedish {
+    background: no-repeat url(../svg/short-line-canteens-swedish.svg);
+    background-position: center;
+    background-size: 100% 3px;
+}
+
+.short-line-tabletop,
+ .short-line-contacts {
+    background: no-repeat url(../svg/short-line-table-contacts.svg);
+    background-position: center;
+    background-size: 100% 3px;
+}
+
+.short-line-active {
+    display: block;
+}
+
+.hover-nav-mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -284,7 +319,18 @@ a {
     height: 490px;
 }
 
+.main__mask {
+    position: absolute;
 
+    display: none;
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.main__mask_active {
+    display: block;
+}
 /* _________FOOTER_________ */
 
 .footer {
@@ -481,6 +527,7 @@ a {
     display: flex;
 
     flex-direction: column;
+    z-index: 999;
 }
 
 .placeSubMenu {
@@ -505,7 +552,7 @@ a {
 .submenu {
     display: flex;
     width: 71.5%;
-    padding-bottom: 299px;
+    /* padding-bottom: 299px; */
 
     align-items: flex-start;
     justify-content: space-between;
