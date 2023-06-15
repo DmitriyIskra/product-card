@@ -64,16 +64,19 @@ export default class ControlPage {
             
             // Поучаем data атрибут активного элемента
             const attrData = e.target.dataset.name;
-
-            // получаем под меню и маску
+            
+            // получаем подменю
             this.subMenu = this.controlHeader.getSubMenu(attrData);
             
+            // активируем меню и маску
             this.controlHeader.openMenu(this.subMenu);
             this.controlMain.activeMask();
 
+            // навешиваем на подменю слушатель событий
             this.subMenu.addEventListener('click', (e) => {
                 // Закрываем по клику на крестик
                 if(e.target.closest('.close-submenu')) {
+
                     this.controlHeader.closeSubMenu(this.subMenu);
                     this.subMenu = null;
 

@@ -1,14 +1,16 @@
-import LifeStyleMenu from "./lifestyleMenu";
 
-export default class ControlMenu {
-    constructor(element) {
+export default class ControlHeader {
+    constructor(element, generator, lifeStyleMenu, tableware, tabletop) {
         if(typeof(element === 'string')) {
             this.element = document.querySelector(element);
         }
 
+        this.generator = generator;
         this.longLine = this.element.querySelector('.header__long-underline');
 
-        this.lifestyle = new LifeStyleMenu();
+        this.lifestyle = lifeStyleMenu;
+        this.tableware = tableware;
+        this.tabletop = tabletop;
 
         this.subMenu = null;
         this.lastActiveElement = null;
@@ -19,17 +21,12 @@ export default class ControlMenu {
     createPattern(html) {
         const wraperSubMenu = document.createElement('div');
         const placeSubMenu = document.createElement('div');
-        // const maskSubMenu = document.createElement('div');
 
         wraperSubMenu.classList.add('wraperSubMenu');
         wraperSubMenu.classList.add('unactive-sub');
         placeSubMenu.classList.add('placeSubMenu');
-        // maskSubMenu.classList.add('maskSubMenu');
 
-        placeSubMenu.append(html);
-
-        wraperSubMenu.append(placeSubMenu);
-        // wraperSubMenu.append(maskSubMenu);
+        wraperSubMenu.append(html);
 
         let height = this.element.offsetHeight;
 
@@ -64,8 +61,15 @@ export default class ControlMenu {
 
     // Получаем под меню
     getSubMenu(value) {
-        const element = this[value].getLifeStyleMenu();
+        
+        if(value !== 'lifestyle') {
+            this[value].generator = this.generator.gen();
+        }
+
+        const element = this[value].getPointsSubMenu();
         const subMenu = this.createPattern(element);
+
+        this[value].generator = null;
 
         return subMenu;
     }

@@ -1,10 +1,10 @@
 
 export default class LifeStyleMenu {
-    constructor () {
-        this.itemsSubMenu = ['SYNERGY & STYLE LIGHTS', 'Фарфор SYNERGY', 'Линейка продуктов Lifestyle']
+    constructor (arr) {
+        this.itemsSubMenu = arr; 
     }
 
-    getLifeStyleMenu() {
+    getPointsSubMenu() {
         const subMenu = document.createElement('div');
         subMenu.classList.add('submenu');
 
