@@ -1,6 +1,6 @@
 
 export default class ControlHeader {
-    constructor(element, generator, lifeStyleMenu, tableware, tabletop) {
+    constructor(element, generator, lifeStyleMenu, tableware, tabletop, swedishline) {
         if(typeof(element === 'string')) {
             this.element = document.querySelector(element);
         }
@@ -11,6 +11,7 @@ export default class ControlHeader {
         this.lifestyle = lifeStyleMenu;
         this.tableware = tableware;
         this.tabletop = tabletop;
+        this.swedishline = swedishline;
 
         this.subMenu = null;
         this.lastActiveElement = null;

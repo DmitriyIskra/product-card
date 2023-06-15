@@ -1,6 +1,6 @@
-export default class TableTop {
-    constructor(drinks, serving, tableDecor, spices, amountColumns, amountElements) {
-        this.itemsSubMenu = [drinks, serving, tableDecor, spices,];
+export default class SwedishLine {
+    constructor(quadro, termo, dispensers, serving, amountColumns, amountElements) {
+        this.itemsSubMenu = [quadro, termo, dispensers, serving];
         this.amountColumns = amountColumns;
         this.amountElements = amountElements;
         this.generator = null;

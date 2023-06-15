@@ -5,6 +5,7 @@ import LifeStyleMenu from "./controlHeader/lifestyleMenu";
 import Tableware from "./controlHeader/tableware";
 import TableTop from "./controlHeader/tabletop";
 import Generator from "./generator";
+import SwedishLine from "./controlHeader/swedishline";
 
 const generator = new Generator();
 
@@ -20,14 +21,20 @@ const finishingDevices = ['Специальная отделка приборо�
 const tableware = new Tableware(itemsNewEasy, arrtableware, servingDevices, finishingDevices, 2, 2);
 
 
+const drinks = ['Напитки', 'True Flavour: хрустальное стекло', 'Кофе и чай', 'Кулеры', 'Все позиции', 'Коллекции', 'О стекле WMF Firstglass'];
+const serving = ['Сервировка', 'Все позиции', 'Коллекции'];
+const tableDecor = ['Столовый декор', 'Все позиции', 'Коллекции'];
+const spices = ['Специи', 'Все позиции', 'Коллекции'];
+const tabletop = new TableTop(drinks, serving, tableDecor, spices, 2, 2);
+
 const quadro = ['WMF Quadro', 'Все позиции', 'WMF Quadro модули', 'WMF Quadro сеты', 'О WMF Quadro'];
 const termo = ['Мармиты и термоемкости', 'Все позиции', 'Коллекции', 'О мармитах'];
 const dispensers = ['Диспенсеры', 'Все позиции'];
-const serving = ['Подача блюд и напитков', 'Все позиции'];
-const tabletop = new TableTop(quadro, termo, dispensers, serving, 2, 2);
+const servingDrinks = ['Подача блюд и напитков', 'Все позиции'];
+const swedishline = new SwedishLine(quadro, termo, dispensers, servingDrinks, 2, 2)
 
 
-const controlHeader = new ControlHeader('.header', generator, lifeStyleMenu, tableware, tabletop);
+const controlHeader = new ControlHeader('.header', generator, lifeStyleMenu, tableware, tabletop, swedishline);
 const controlMain = new ControlMain('.main');
 
 const controlPage = new ControlPage(document.body, controlHeader, controlMain);
