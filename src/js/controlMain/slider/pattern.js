@@ -1,5 +1,7 @@
 import './style-slider.css';
 
+// import img1 from './img/img_slider_1.png';
+
 export default class Pattern {
     constructor(arrImg) {
         this.arrImg = arrImg;
@@ -13,15 +15,19 @@ export default class Pattern {
         slideContainer.classList.add('slider__slide-container');
 
         for(let i = 0; i < this.arrImg.length; i += 1) {
-            const wraperSlide = document.createElement('li');
-            wraperSlide.classList.add('slider__wraper-slide');
+            const wrapperSlide = document.createElement('li');
+            wrapperSlide.classList.add('slider__wrapper-slide');
 
-            const sliderImg = document.createElement('img');
-            sliderImg.classList.add('slider__img');
-            sliderImg.src = `${this.arrImg[i]}`;
+            // ....... КОСТЫЛЬ
+            wrapperSlide.classList.add(`backImg-${i + 1}`);
+           // ....... КОСТЫЛЬ
+
+            // const sliderImg = document.createElement('img');
+            // sliderImg.classList.add('slider__img'); 
+            // sliderImg.src = `../slider/img/img_slider_1.png`; // ${this.arrImg[i]}
             // console.log(sliderImg)
-            wraperSlide.append(sliderImg);
-            slideContainer.append(wraperSlide);
+            // wrapperSlide.append(sliderImg);
+            slideContainer.append(wrapperSlide);
         }
 
         const arrowLeft = document.createElement('div');
@@ -36,7 +42,7 @@ export default class Pattern {
         for(let i = 0; i < this.arrImg.length; i += 1) {
             const navItem = document.createElement('li');
             navItem.classList.add('slider__navigation-item');
-            navItem.id = `${i + 1}`;
+            navItem.setAttribute('data-point', `${i + 1}`);
             navigationList.append(navItem);
         }
 
@@ -49,6 +55,19 @@ export default class Pattern {
     }
 
     patternZum() {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('slider__wrapper-zum');
 
+        const img = document.createElement('div');
+        img.classList.add('slider__img-zum');
+
+        const close = document.createElement('div');
+        close.classList.add('slider__close-zum');
+        close.textContent = 'CLOSE';
+
+        wrapper.append(img);
+        wrapper.append(close);
+
+        return wrapper;
     }
 }

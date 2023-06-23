@@ -47,10 +47,12 @@ import ControlSlider from './controlMain/slider/controlSlider';
 import DrawUISlider from "./controlMain/slider/drawUI";
 import Pattern from "./controlMain/slider/pattern";
 
+
+
 const imgArr = [
-    '/img/img_slider_1.png',
-    '/img/img_slider_2.png',
-    '/img/img_slider_3.png'
+    'img/img_slider_1.png',
+    'img/img_slider_2.png',
+    'img/img_slider_3.png'
 ];
 
 const pattern = new Pattern(imgArr);
@@ -60,4 +62,4 @@ const controlSlider = new ControlSlider(drawUISlider);
 controlSlider.init();
 
 // END SLIDER
-
+console.log(__dirname + 'img/')

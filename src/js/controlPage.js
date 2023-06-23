@@ -94,10 +94,5 @@ export default class ControlPage {
                 }
             })
         };
-
-
-        if(e.target.matches('.slider__arrow-right')) {
-            this.controlMain.controlSlider();
-        }
     }
 }

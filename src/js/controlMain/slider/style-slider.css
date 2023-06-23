@@ -14,12 +14,34 @@
     width: 300%;
     margin-left: 0px;
 
+    transition: margin-left, 500ms, linear;
+
     flex-grow: 1;
 }
 
-.slider__wraper-slide {
+.slider__wrapper-slide {
     width: 100%;
 }
+
+/* .... КОСТЫЛЬ */
+.backImg-1 {
+    background: no-repeat url(../slider/img/img_slider_1.png);
+    background-size: auto 100%;
+    background-position: center;
+}
+
+.backImg-2 {
+    background: no-repeat url(../slider/img/img_slider_2.png);
+    background-size: auto 100%;
+    background-position: center;
+}
+
+.backImg-3 {
+    background: no-repeat url(../slider/img/img_slider_3.png);
+    background-size: auto 100%;
+    background-position: center;
+}
+/* .... КОСТЫЛЬ */
 
 .slider__img {
     width: 100%;
@@ -78,4 +100,46 @@
 
 .slider__navigation-item_active {
     background-color: #333333;
+}
+
+
+/* ZUUUUUUUUUM */
+
+.slider__wrapper-zum {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+
+    display: flex;
+    height: 80%;
+    width: 80%;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+.slider__img-zum {
+    height: 90%;
+    width: 80%;
+}
+
+.slider__close-zum {
+    position: absolute;
+    top: -6%;
+    right: 2%;
+
+    padding-right: 32px;
+
+    font-family: 'WMFRotis-Bold';
+    font-size: 20px;
+
+    background: no-repeat url(../../../svg/close=search.svg);
+    background-position: center right;
+
+    color: #333333;
+
+    cursor: pointer;
 }
