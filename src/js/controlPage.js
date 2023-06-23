@@ -5,7 +5,7 @@ export default class ControlPage {
         this.controlMain = controlMain;
 
         this.lastActiveElement = null;
-        this.subMenu = null;
+        this.subMenu = null; 
         this.clickedElementNav = null;
 
         this.onMouseOver = this.onMouseOver.bind(this);
@@ -16,6 +16,8 @@ export default class ControlPage {
     init() {
         this.controlHeader.element.addEventListener('mouseover', this.onMouseOver);
         this.controlHeader.element.addEventListener('click', this.onMouseClick);
+
+        this.controlMain.element.addEventListener('click', this.onMouseClick);
     }
 
     onMouseOver(e) {
@@ -41,9 +43,9 @@ export default class ControlPage {
     }
 
 
+    // добавить переключение по пунктам меню не закрывая предыдущее подменю
     // добавить проверку на пункт меню, есть ли у него подменю...
-    // убрать пединг у подменю, заменить на высоту...
-    // вынести getPointsSubMenu() в отдельный класс и наследовать от него менюшки
+    // убрать пединг у подменю, заменить на фиксированную высоту...
     onMouseClick(e) {
         if(e.target.closest('.header__nav-link') && this.subMenu) {
             // Закрывается при повторном клике на элемент меню
@@ -91,6 +93,11 @@ export default class ControlPage {
                     this.clickedElementNav.classList.remove('active');
                 }
             })
+        };
+
+
+        if(e.target.matches('.slider__arrow-right')) {
+            this.controlMain.controlSlider();
         }
     }
 }

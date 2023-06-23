@@ -215,14 +215,10 @@ a {
     flex-wrap: wrap;
 }
 
-.main__wr-img-product {
-    width: 50%;
-}
+.main__slider-container {
+    display: flex;
 
-.main__img-product {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+    width: 50%;
 }
 
 .main__wr-description-product {

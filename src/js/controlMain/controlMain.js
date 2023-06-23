@@ -7,7 +7,7 @@ export default class ControlMain {
         this.mask = this.element.querySelector('.main__mask');
     }
 
-    activeMask() {
+    activeMask() { 
         let height = this.element.offsetHeight;
         let top = this.element.offsetTop;
 
