@@ -56,6 +56,14 @@ export default class ControlPage {
    
         if(e.target.closest('.header__nav-link') && !this.lastActiveTarget && !this.subMenu) {
             // ОТКРЫВАЕМ МЕНЮ КАК В ПЕРВЫЙ РАЗ, ПРИ ЗАКРЫТОМ ПОДМЕНЮ
+
+            //закрываем поиск если открыт 
+            if(this.controlHeader.activeIconSearch) {
+                this.controlHeader.redrawIconSearch(this.controlHeader.activeIconSearch);
+                this.controlHeader.redrawPlaceSearch();
+            }
+            
+
             this.lastActiveTarget = e.target;
             // Сохранияем кликнутый элемент и отмечаем его
             this.clickedElementNav = e.target.parentElement;
@@ -108,6 +116,12 @@ export default class ControlPage {
 
     
             // ОТКРЫВАЕМ ПОДМЕНЮ ДРУГОГО ЭЛЕМЕНТА
+            
+            //закрываем поиск если открыт 
+            if(this.controlHeader.activeIconSearch) {
+                this.controlHeader.redrawIconSearch(this.controlHeader.activeIconSearch);
+                this.controlHeader.redrawPlaceSearch();
+            }
 
             this.clickedElementNav = e.target.parentElement;
             this.clickedElementNav.classList.add('active');

@@ -18,6 +18,7 @@ export default class ControlHeader {
         this.lastActiveElement = null;
         this.lastActiveMask = null;
         this.lastShortLine = null;
+        this.activeIconSearch = null;
     }
 
     createPattern(html) {
@@ -72,7 +73,7 @@ export default class ControlHeader {
         const subMenu = this.createPattern(element);
 
         this[value].generator = null;
-
+ 
         return subMenu;
     }
 
@@ -87,15 +88,19 @@ export default class ControlHeader {
         
     }
 
+    // Перерисовка иконки поиска
     redrawIconSearch(target) {
         if(target.matches('.header__icon-search_active')) {
             target.classList.remove('header__icon-search_active');
+            this.activeIconSearch = null;
             return;
         }
 
         target.classList.add('header__icon-search_active');
+        this.activeIconSearch = target;
     }
 
+    // активация поля для ввода поиска
     redrawPlaceSearch() {
         if(this.placeSearch.matches('.place-search_active')) {
             this.placeSearch.classList.remove('place-search_active');
