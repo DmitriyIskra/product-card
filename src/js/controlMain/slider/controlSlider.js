@@ -8,7 +8,7 @@ export default class ControlSlider {
     init() {
         this.drawUI.rendering(); 
         
-        this.drawUI.slider.addEventListener('click', this.onClick)
+        this.drawUI.container.addEventListener('click', this.onClick)
     }
 
     onClick(e) {
@@ -30,6 +30,11 @@ export default class ControlSlider {
         // Открытие zuuuuum zuuuuum zuuuuum
         if(e.target.matches('.slider__wrapper-slide')) {
             this.drawUI.drawZum(e.target);
+        }
+
+        // закрытие zum по кнопке close
+        if(e.target.matches('.slider__close-zum')) {
+            this.drawUI.closeZum();
         }
     }
 }

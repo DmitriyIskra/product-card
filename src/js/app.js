@@ -6,6 +6,8 @@ import Tableware from "./controlHeader/tableware";
 import TableTop from "./controlHeader/tabletop";
 import Generator from "./generator";
 import SwedishLine from "./controlHeader/swedishline";
+import PatternInfo from "./controlMain/patternInfo";
+import DataInfo from "./controlMain/data";
 
 const generator = new Generator();
 
@@ -34,10 +36,14 @@ const servingDrinks = ['Подача блюд и напитков', 'Все по
 const swedishline = new SwedishLine(quadro, termo, dispensers, servingDrinks, 2, 2)
 
 
-const controlHeader = new ControlHeader('.header', generator, lifeStyleMenu, tableware, tabletop, swedishline);
-const controlMain = new ControlMain('.main');
+const patternInfo = new PatternInfo();
 
-const controlPage = new ControlPage(document.body, controlHeader, controlMain);
+const controlHeader = new ControlHeader('.header', generator, lifeStyleMenu, tableware, tabletop, swedishline);
+
+const controlMain = new ControlMain('.main', patternInfo);
+
+const dataInfo = new DataInfo();
+const controlPage = new ControlPage(document.body, controlHeader, controlMain, dataInfo);
 
 controlPage.init()
 
@@ -47,10 +53,8 @@ import ControlSlider from './controlMain/slider/controlSlider';
 import DrawUISlider from "./controlMain/slider/drawUI";
 import Pattern from "./controlMain/slider/pattern";
 
-
-
 const imgArr = [
-    'img/img_slider_1.png',
+    './img/img_slider_1.png',
     'img/img_slider_2.png',
     'img/img_slider_3.png'
 ];
@@ -62,4 +66,4 @@ const controlSlider = new ControlSlider(drawUISlider);
 controlSlider.init();
 
 // END SLIDER
-console.log(__dirname + 'img/')
+

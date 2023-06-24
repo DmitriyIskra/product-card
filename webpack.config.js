@@ -9,7 +9,6 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: path.join('img', '[name].[contenthash][ext]'),
   },
   module: {
     rules: [
@@ -33,17 +32,6 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader, 'css-loader',
         ],
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.svg$/,
-        type: 'asset/resource',
-        generator: {
-          filename: path.join('icons', '[name].[contenthash][ext]'),
-        },
       },
     ],
   },

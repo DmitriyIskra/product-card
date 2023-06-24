@@ -6,12 +6,13 @@ export default class ControlHeader {
         }
 
         this.generator = generator;
+        this.placeSearch = this.element.querySelector('.header__place-search');
         this.longLine = this.element.querySelector('.header__long-underline');
 
         this.lifestyle = lifeStyleMenu;
         this.tableware = tableware;
         this.tabletop = tabletop;
-        this.swedishline = swedishline;
+        this.swedishline = swedishline; 
 
         this.subMenu = null;
         this.lastActiveElement = null;
@@ -76,9 +77,32 @@ export default class ControlHeader {
     }
 
     closeSubMenu(element) {
-        element.remove();
+        if(element) {
+            element.remove();
 
-        this.longLine.style.opacity = '';
-        this.lastShortLine.classList.remove('short-line-active');
+            this.longLine.style.opacity = '';
+            this.lastShortLine.classList.remove('short-line-active');
+        }
+
+        
+    }
+
+    redrawIconSearch(target) {
+        if(target.matches('.header__icon-search_active')) {
+            target.classList.remove('header__icon-search_active');
+            return;
+        }
+
+        target.classList.add('header__icon-search_active');
+    }
+
+    redrawPlaceSearch() {
+        if(this.placeSearch.matches('.place-search_active')) {
+            this.placeSearch.classList.remove('place-search_active');
+            return;
+        }
+
+        this.placeSearch.classList.add('place-search_active');
+        this.placeSearch.parentElement.reset();
     }
 }

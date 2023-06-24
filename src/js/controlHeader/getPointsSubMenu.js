@@ -4,7 +4,7 @@ export default class GetPointsSubMenu {
 
         this.index = null;
     }
-
+ 
     getPointsSubMenu() {
         const subMenu = document.createElement('div');
         subMenu.classList.add('submenu');
@@ -73,7 +73,7 @@ export default class GetPointsSubMenu {
 
         const closeSubMenu = document.createElement('div');
         closeSubMenu.classList.add('close-submenu');
-        subMenu.style.paddingBottom = '299px';
+        subMenu.style.minHeight = '442px';
 
         subMenu.append(subMenuColumns);
         subMenu.append(closeSubMenu);

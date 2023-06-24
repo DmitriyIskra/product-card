@@ -24,7 +24,7 @@ export default class Pattern {
 
             // const sliderImg = document.createElement('img');
             // sliderImg.classList.add('slider__img'); 
-            // sliderImg.src = `../slider/img/img_slider_1.png`; // ${this.arrImg[i]}
+            // sliderImg.src = this.arrImg[i]; // ${this.arrImg[i]}
             // console.log(sliderImg)
             // wrapperSlide.append(sliderImg);
             slideContainer.append(wrapperSlide);

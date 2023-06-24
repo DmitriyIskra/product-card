@@ -151,6 +151,13 @@ a {
     height: 35px;
 
     background: no-repeat url(../svg/search.svg);
+
+    cursor: pointer;
+}
+
+.header__icon-search_active {
+    background: no-repeat url(../svg/close=search.svg);
+    background-position-y: bottom;
 }
 
 .header__long-underline {
@@ -172,8 +179,13 @@ a {
     align-items: center;
 }
 
+.header__form-search {
+    width: 100%;
+}
+
 .header__place-search {
     display: none;
+    width: 100%;
     margin-left: 8px;
 
     font-family: 'WMFRotis-Regular';
@@ -181,8 +193,6 @@ a {
 
     border: 0;
     outline: 0;
-
-    visibility: none;
 }
 
 .place-search_active {
@@ -272,7 +282,7 @@ a {
 
 
 
-
+/* управление блоком информации */
 .main__wr-tech-info {
     width: 100%;
     padding-top: 110px;
@@ -290,34 +300,124 @@ a {
 
     font-family: 'WMFRotis-Regular';
     font-size: 30px;
+
+    cursor: pointer;
 }
 
 .tech-haracteristic {
     padding-left: 131px;
    
     border-right: 2px dashed #777777;
+
+    cursor: pointer;
 }
 
 .active-tech-haracteristic {
-    background-color: #ffffff;
+    background: #ffffff;
     border-top: 2px dashed #777777;
-}
 
+    cursor: default
+}
+/* --------------------------------- */
+
+/* Контейнер */
 .main__tech-info-container {
+    display: flex;
+
     margin-top: 77px;
     padding-left: 131px;
 }
 
-.main__tech-info-files {
-    display: flex;
-    
-    gap: 77px;
+
+/* таблица */
+.main__table-wrapper {
+    border: 1px solid #666666;
+    border-radius: 8px;
+    margin-bottom: 467px;
+
+    overflow: hidden;
 }
 
-.main__tech-info-table {
-    width: 683px;
-    height: 490px;
+.main__table-row {
+    display: flex;
+
+    border-bottom: 1px solid #666666;
 }
+
+.main__table-row-header {
+    width: 275px;
+    padding-bottom: 8px;
+    padding-top: 33px;
+    padding-left: 27px;
+
+    font-family: 'WMFRotis-Bold';
+    font-size: 20px;
+
+    border-right: 1px solid #666666;
+}
+
+.main__table-row-content {
+    width: 406px;
+    padding-bottom: 8px;
+    padding-top: 33px;
+    padding-left: 14px;
+
+    font-family: 'WMFRotis-Regular';
+    font-size: 18px;
+
+    border-left: 1px solid #666666;
+}
+
+/* ----------------- */
+
+/* Файлы PDF */
+.main__wrapper-info-list {
+    display: flex;
+    width: 100%;
+    margin-bottom: 458px;
+    gap: 60px;
+
+    flex-wrap: wrap;
+}
+
+.main__wrapper-info-item {
+    position: relative;
+
+    display: flex;
+    height: 61px;
+    gap: 5px;
+
+    align-items: center;
+}
+
+.main__icon-pdf {
+    height: 60px;
+    width: 60px;
+
+    background: no-repeat url(../svg/icon-pdf.svg);
+    background-position: center;
+    background-size: 100%;
+}
+
+.main__file-name {
+    width: 90px;
+
+    font-family: 'WMFRotis-Regular';
+    font-size: 16px;
+}
+
+.main__info-file-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/* ---------- */
+
 
 .main__mask {
     position: absolute;
@@ -522,7 +622,6 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
 
     display: flex;
 
@@ -532,7 +631,7 @@ a {
     z-index: 999;
 }
 
-.maskSubMenu {
+.maskSubMenu { 
     width: 100%;
 
     background-color: rgba(0, 0, 0, 0.5);

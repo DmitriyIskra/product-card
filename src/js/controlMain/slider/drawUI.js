@@ -50,6 +50,10 @@ export default class DrawUISlider {
         imgZum.classList.add(`backImg-${this.counterPoint}`);
     }
 
+    closeZum() {
+        this.zum.remove()
+    }
+
     // получаем собранный zum
     getPatternZum() {
         return this.pattern.patternZum();

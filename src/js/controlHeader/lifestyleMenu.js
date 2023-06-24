@@ -28,7 +28,7 @@ export default class LifeStyleMenu {
 
         const closeSubMenu = document.createElement('div');
         closeSubMenu.classList.add('close-submenu');
-        subMenu.style.paddingBottom = '299px';
+        subMenu.style.minHeight = '442px';
 
         subMenu.append(subMenuList);
         subMenu.append(closeSubMenu);
