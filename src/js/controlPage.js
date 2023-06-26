@@ -223,10 +223,6 @@ export default class ControlPage {
             this.controlMain.redrowInfoNav(e.target);
         }
 
-        
-
-
         // РАБОТА ПОЛЯ ИНФОРМАЦИИ И ФАЙЛОВ ФИНИШ
-        
     }
 }
