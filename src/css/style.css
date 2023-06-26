@@ -280,6 +280,10 @@ a {
     cursor: pointer;
 }
 
+.main__button-feedback:hover {
+    background: linear-gradient(76deg, #333 28.65%, #999 100%);    
+}
+
 
 
 /* управление блоком информации */
