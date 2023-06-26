@@ -32,7 +32,7 @@ export default class DrawUISlider {
         this.lastNavPoint.classList.add('slider__navigation-item_active');
     }
 
-    // получаем собранный слайдер
+    // получаем собранный слайдер 
     getPatternSlider() {
         // получаем собранный слайдер
         return this.pattern.patternSlider();
@@ -61,11 +61,15 @@ export default class DrawUISlider {
 
     listToRight() {
         if(this.counter > 1) {
+            // Получаем ширину слайдера в данный момент, страница может сужаться и слайдер вместе с ней
             this.widthSlider = this.slider.offsetWidth;
 
             // меняем margin у контейнера;
             this.marginLeft -= this.widthSlider;
             this.slideContainer.style.cssText = `margin-left: ${this.marginLeft}px;`;
+            this.slideContainer.style.transitionProperty = 'all';
+            this.slideContainer.style.transitionDuration = '0.3s';
+            this.slideContainer.style.transitionTimingFunction = 'linear';
 
             // ПЕРЕКЛЮЧАЕМ ПОИНТ НАВИГАЦИЮ
             this.counterPoint += 1;
@@ -84,6 +88,9 @@ export default class DrawUISlider {
             // меняем margin у контейнера;
             this.marginLeft += this.widthSlider;
             this.slideContainer.style.cssText = `margin-left: ${this.marginLeft}px;`;
+            this.slideContainer.style.transitionProperty = 'all';
+            this.slideContainer.style.transitionDuration = '0.3s';
+            this.slideContainer.style.transitionTimingFunction = 'linear';
 
             // ПЕРЕКЛЮЧАЕМ ПОИНТ НАВИГАЦИЮ
             this.counterPoint -= 1;
@@ -97,6 +104,7 @@ export default class DrawUISlider {
     listWithPoint(target) {
         this.widthSlider = this.slider.offsetWidth;
         
+        // расщитываем на сколько нужно сдвинуть слайдер
         let result = (Math.abs(+target.dataset.point - +this.lastNavPoint.dataset.point)) * this.widthSlider;
 
         // ПЕРЕНАЗНАЧАЕМ ПОИНТ НАВИГАЦИЮ
@@ -114,7 +122,9 @@ export default class DrawUISlider {
 
             this.marginLeft -= result;
             this.slideContainer.style.cssText = `margin-left: ${this.marginLeft}px;`;
-
+            this.slideContainer.style.transitionProperty = 'all';
+            this.slideContainer.style.transitionDuration = '0.3s';
+            this.slideContainer.style.transitionTimingFunction = 'linear';
             
         }
 
@@ -130,6 +140,9 @@ export default class DrawUISlider {
 
             this.marginLeft += result;
             this.slideContainer.style.cssText = `margin-left: ${this.marginLeft}px;`;
+            this.slideContainer.style.transitionProperty = 'all';
+            this.slideContainer.style.transitionDuration = '0.3s';
+            this.slideContainer.style.transitionTimingFunction = 'linear';
         }
     }
 

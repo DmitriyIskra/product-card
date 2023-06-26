@@ -20,7 +20,7 @@ export default class ControlSlider {
         // Нажатие стрелки влево
         if(e.target.matches('.slider__arrow-left')) {
             this.drawUI.listToLeft();
-        }
+        } 
 
         // Нажатие поинт навигации
         if(e.target.matches('.slider__navigation-item')) {

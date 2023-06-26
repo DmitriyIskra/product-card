@@ -53,7 +53,7 @@ export default class Pattern {
 
         return slider;
     }
-
+ 
     patternZum() {
         const wrapper = document.createElement('div');
         wrapper.classList.add('slider__wrapper-zum');

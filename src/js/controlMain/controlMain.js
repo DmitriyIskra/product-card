@@ -29,7 +29,7 @@ export default class ControlMain {
     }
 
     // Перерисовка карточек характеристик и информации
-    redrowInfoNav(target) {
+    redrowInfoNav(target) { 
         this.lastActiveNavigations.classList.remove('active-tech-haracteristic');
 
         if(target.matches('.informational-materials')) {

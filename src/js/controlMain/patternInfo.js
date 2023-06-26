@@ -4,7 +4,7 @@ export default class PatternInfo {
         const wrapper = document.createElement('div');
         wrapper.classList.add('main__table-wrapper');
         wrapper.classList.add('wrapper-info');
-        wrapper.classList.add('specifications');
+        wrapper.classList.add('specifications'); 
 
         for(let i = 0; i < headers.length; i += 1) {
             const row = document.createElement('div');
